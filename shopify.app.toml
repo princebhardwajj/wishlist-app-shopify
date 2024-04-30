@@ -3,7 +3,7 @@
 client_id = "5f621d0a43144f0fd92ab9416652c321"
 name = "wishlist-inspire"
 handle = "wishlist-inspire-162"
-application_url = "https://official-expressed-department-berkeley.trycloudflare.com"
+application_url = "https://strain-midi-compaq-welding.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://official-expressed-department-berkeley.trycloudflare.com/auth/callback",
-  "https://official-expressed-department-berkeley.trycloudflare.com/auth/shopify/callback",
-  "https://official-expressed-department-berkeley.trycloudflare.com/api/auth/callback"
+  "https://strain-midi-compaq-welding.trycloudflare.com/auth/callback",
+  "https://strain-midi-compaq-welding.trycloudflare.com/auth/shopify/callback",
+  "https://strain-midi-compaq-welding.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
