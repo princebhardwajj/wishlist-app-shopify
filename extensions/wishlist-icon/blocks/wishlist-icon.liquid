@@ -16,10 +16,32 @@
     document.addEventListener('alpine:init', () => {
         Alpine.data('wishlist', () => ({
             wishlisted: false,
+            appUrl = "https://sony-coordinates-domestic-chess.trycloudflare.com/",
  
             addToWishlist() {
                 this.wishlisted = ! this.wishlisted
                 // ToDO : send data to database
+                {% unless customer %} 
+                    // If customer not login, show  an alert to login
+                    alert('Please login to add to wishlist')
+                    return;
+                {% endunless %} %}
+
+                var fromData = new FormData();
+                fromData.append("customerId", "{{ customer.id }}");
+                fromData.append("productId", "{{ product.id }}");
+                fromData.append("shop", "{{ shop.permanent_domain }}");
+                
+                var requsetOptions = {
+                    method: "POST",
+                    body: fromData,
+                    redirect: 'follow'
+                }
+
+                fetch(this.appUrl + "api/wishlist", requsetOptions)
+                    .then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
             }
         }))
     })
@@ -42,7 +64,8 @@
         align-items: center;
     }
     .wishlist-inspire__icon button svg {
-        width: 20px;
+        width: 2rem;
+        height: 2rem;
     }
 </style>
 
@@ -67,7 +90,7 @@
                 "type": "color",
                 "id": "color",
                 "label": "Icon Colour",
-                "default": "#ed1b24" 
+                "default": "#ff0000" 
             }
         ]
     }
