@@ -14,6 +14,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <script>
+  console.log("hi")
     document.addEventListener('alpine:init', () => {
         Alpine.data('wishlist', () => ({
             init(){
@@ -27,7 +28,7 @@
                   .catch(error => console.log('error', error));
             },
             wishlisted: false,
-            appUrl: "https://exceptions-glad-leaves-emotions.trycloudflare.com/",
+            appUrl: "https://wishlist-organized-save-interviews.trycloudflare.com/",
             addToWishlist() {
                 // TODO: send data to database save wishlist
                 {%  unless customer  %}
@@ -55,6 +56,7 @@
                   redirect: 'follow'
                 };
 
+                
                 fetch(this.appUrl + "api/wishlist", requestOptions)
                     .then(response => response.json())
                     .then(result => {
